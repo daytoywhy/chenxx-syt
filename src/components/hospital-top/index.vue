@@ -7,7 +7,7 @@
       </div>
       <div class="right">
         <p class="help">帮助中心</p>
-        <p class="login">注册/登陆</p>
+        <p class="login" @click="login">注册/登陆</p>
       </div>
     </div>
   </div>
@@ -15,11 +15,16 @@
 
 <script setup lang="ts">
 import { useRouter} from 'vue-router'
+import useUserStore from '@/store/module/user'
+let userStore = useUserStore()
 const $router = useRouter()
 const goHome = () => {
   $router.push('/')
 }
 
+const login = () =>{
+  userStore.loginVisible = true
+}
 </script>
 
 <style scoped lang="scss">

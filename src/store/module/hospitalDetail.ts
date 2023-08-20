@@ -1,12 +1,13 @@
 import { defineStore } from 'pinia'
-import { getHospitalInfo } from '@/api/hospital'
+import { getHospitalInfo,getDepartment } from '@/api/hospital'
 const useHosDetailStore = defineStore('hosDeital',{
   state:()=>{
     return{
       hospitalInfo:{
         hospital:{},
         bookingRule:{}
-      }
+      },
+      departments:[]
     }
   },
   actions:{
@@ -14,6 +15,12 @@ const useHosDetailStore = defineStore('hosDeital',{
       const res:any = await getHospitalInfo(hoscode)
       if(res.code === 200){
         this.hospitalInfo = res.data
+      }
+    },
+    async getDepartments(hoscode:string){
+      const res:any = await getDepartment(hoscode)
+      if(res.code === 200){
+        this.departments = res.data
       }
     }
   },

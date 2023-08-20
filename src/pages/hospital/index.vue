@@ -53,6 +53,7 @@ const $router = useRouter()
 let $route = useRoute()
 onMounted(()=>{
   hosDetailStore.getHosInfo($route.query.hoscode)
+  hosDetailStore.getDepartments($route.query.hoscode)
 })
 const changeActive = (path:string)=>{
   $router.push({path})

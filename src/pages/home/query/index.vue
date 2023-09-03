@@ -48,6 +48,7 @@ let $emit =  defineEmits(['selectItem'])
     }
     .right {
       display: flex;
+      flex-wrap: wrap;
       li {
         margin-right: 16px;
         margin-bottom: 16px;
